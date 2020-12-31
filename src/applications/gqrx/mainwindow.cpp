@@ -2173,6 +2173,8 @@ void MainWindow::onBookmarkActivated(qint64 freq, const QString& demod, int band
     }
 
     on_plotter_newFilterFreq(lo, hi);
+    
+    ui->plotter ->moveToCenterFreq();
 }
 
 void MainWindow::setPassband(int bandwidth)
