@@ -36,6 +36,7 @@
 #include "dsp/rx_demod_am.h"
 //#include "dsp/resampler_ff.h"
 #include "dsp/resampler_xx.h"
+#include <gnuradio/blocks/float_to_complex.h>
 
 class nbrx;
 

@@ -861,8 +861,9 @@ receiver::status receiver::set_demod(rx_demod demod, bool force)
         break;
 
     case RX_DEMOD_NONE:
-        connect_all(RX_CHAIN_NBRX);
-        rx->set_demod(nbrx::NBRX_DEMOD_NONE);
+        //connect_all(RX_CHAIN_NBRX);
+        connect_all(RX_CHAIN_NONE);
+        //rx->set_demod(nbrx::NBRX_DEMOD_NONE);
         break;
 
     case RX_DEMOD_AM:
