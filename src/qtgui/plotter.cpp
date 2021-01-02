@@ -656,7 +656,7 @@ void CPlotter::mousePressEvent(QMouseEvent * event)
                 emit newDemodFreq(m_DemodCenterFreq, m_DemodCenterFreq - m_CenterFreq);
                 drawOverlay();
             }
-            else if (event->buttons() == Qt::RightButton)
+            else if (event->buttons() == Qt::RightButton && m_CenterLineEnabled)
             {
                 // reset frequency zoom
                 resetHorizontalZoom();
@@ -671,7 +671,7 @@ void CPlotter::mousePressEvent(QMouseEvent * event)
         else if (m_CursorCaptured == XAXIS)
         {
             m_Xzero = pt.x();
-            if (event->buttons() == Qt::RightButton)
+            if (event->buttons() == Qt::RightButton && m_CenterLineEnabled)
             {
                 // reset frequency zoom
                 resetHorizontalZoom();
@@ -1401,6 +1401,12 @@ void CPlotter::drawOverlay()
 
     // draw frequency values (x axis)
     makeFrequencyStrs();
+    
+    if(m_CenterLineEnabled)
+    {
+    painter.fillRect(0, xAxisTop, w, h, QColor(0xff000000));
+    }
+    
     painter.setPen(QColor(PLOTTER_TEXT_COLOR));
     for (int i = 0; i <= m_HorDivs; i++)
     {
