@@ -61,6 +61,7 @@ DockRxOpt::DockRxOpt(qint64 filterOffsetRange, QWidget *parent) :
         ModulationStrings.append("Demod Off");
         ModulationStrings.append("Raw I/Q");
         ModulationStrings.append("AM");
+        ModulationStrings.append("AM-Sync");
         ModulationStrings.append("Narrow FM");
         ModulationStrings.append("WFM (mono)");
         ModulationStrings.append("WFM (stereo)");
@@ -69,7 +70,6 @@ DockRxOpt::DockRxOpt(qint64 filterOffsetRange, QWidget *parent) :
         ModulationStrings.append("CW-L");
         ModulationStrings.append("CW-U");
         ModulationStrings.append("WFM (oirt)");
-        ModulationStrings.append("AM-Sync");
     }
     ui->modeSelector->addItems(ModulationStrings);
 
