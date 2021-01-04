@@ -414,54 +414,55 @@ int RemoteControl::modeStrToInt(QString mode_str)
     {
         mode_int = 2;
     }
-    else if (mode_str.compare("FM", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("AMS", Qt::CaseInsensitive) == 0)
     {
         mode_int = 3;
     }
-    else if (mode_str.compare("WFM", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("FM", Qt::CaseInsensitive) == 0)
     {
         mode_int = 4;
     }
-    else if (mode_str.compare("WFM_ST", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("WFM", Qt::CaseInsensitive) == 0)
     {
         mode_int = 5;
     }
-    else if (mode_str.compare("LSB", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("WFM_ST", Qt::CaseInsensitive) == 0)
     {
         mode_int = 6;
     }
-    else if (mode_str.compare("USB", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("LSB", Qt::CaseInsensitive) == 0)
     {
         mode_int = 7;
     }
+    else if (mode_str.compare("USB", Qt::CaseInsensitive) == 0)
+    {
+        mode_int = 8;
+    }
     else if (mode_str.compare("CW", Qt::CaseInsensitive) == 0)
     {
-        mode_int = 9;
+        mode_int = 10;
         hamlib_compatible = true;
     }
     else if (mode_str.compare("CWL", Qt::CaseInsensitive) == 0)
     {
-        mode_int = 8;
+        mode_int = 9;
         hamlib_compatible = false;
     }
     else if (mode_str.compare("CWR", Qt::CaseInsensitive) == 0)
     {
-        mode_int = 8;
+        mode_int = 9;
         hamlib_compatible = true;
     }
     else if (mode_str.compare("CWU", Qt::CaseInsensitive) == 0)
     {
-        mode_int = 9;
+        mode_int = 10;
         hamlib_compatible = false;
     }
     else if (mode_str.compare("WFM_ST_OIRT", Qt::CaseInsensitive) == 0)
     {
-        mode_int = 10;
-    }
-    else if (mode_str.compare("AMS", Qt::CaseInsensitive) == 0)
-    {
         mode_int = 11;
     }
+
 
     return mode_int;
 }
