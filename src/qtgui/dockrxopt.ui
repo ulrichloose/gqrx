@@ -518,7 +518,7 @@ This is an offset from the hardware RF frequency.&lt;/p&gt;&lt;/body&gt;&lt;/htm
            </size>
           </property>
           <property name="toolTip">
-           <string>Noise blanker for static type noise</string>
+           <string>LMS noise reduction</string>
           </property>
           <property name="whatsThis">
            <string/>
@@ -558,7 +558,7 @@ This is an offset from the hardware RF frequency.&lt;/p&gt;&lt;/body&gt;&lt;/htm
            </size>
           </property>
           <property name="toolTip">
-           <string>Noise blanker for pulse type noise</string>
+           <string>Spectral noise reduction</string>
           </property>
           <property name="whatsThis">
            <string/>
