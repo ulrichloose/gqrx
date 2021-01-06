@@ -2155,11 +2155,6 @@ void MainWindow::setRdsDecoder(bool checked)
 
 void MainWindow::onBookmarkActivated(qint64 freq, const QString& demod, int bandwidth)
 {
-    // set RX filter
-    rx->set_filter_offset(0);
-    // update RF freq label and channel filter offset
-    uiDockRxOpt->setFilterOffset(0);
-
     setNewFrequency(freq);
     selectDemod(demod);
 
@@ -2170,23 +2165,21 @@ void MainWindow::onBookmarkActivated(qint64 freq, const QString& demod, int band
     int lo, hi;
     uiDockRxOpt->getFilterPreset(mode, preset, &lo, &hi);
 
-    if(lo >= 0 && hi >= 0) // USB
-    {
-        hi = lo + bandwidth;
-    }
-    else if(lo <= 0 && hi <= 0) // LSB
-    {
-        lo = hi - bandwidth;
-    }
-    else  // symmetric and anything else
+    if(lo + hi == 0)
     {
         lo = -bandwidth / 2;
         hi =  bandwidth / 2;
     }
+    else if(lo >= 0 && hi >= 0)
+    {
+        hi = lo + bandwidth;
+    }
+    else if(lo <= 0 && hi <= 0)
+    {
+        lo = hi - bandwidth;
+    }
 
     on_plotter_newFilterFreq(lo, hi);
-    
-    ui->plotter ->moveToCenterFreq();
 }
 
 void MainWindow::setPassband(int bandwidth)
@@ -2198,18 +2191,18 @@ void MainWindow::setPassband(int bandwidth)
     int lo, hi;
     uiDockRxOpt->getFilterPreset(mode, preset, &lo, &hi);
 
-    if(lo >= 0 && hi >= 0) // USB
-    {
-        hi = lo + bandwidth;
-    }
-    else if(lo <= 0 && hi <= 0) // LSB
-    {
-        lo = hi - bandwidth;
-    }
-    else  // symmetric and anything else
+    if(lo + hi == 0)
     {
         lo = -bandwidth / 2;
         hi =  bandwidth / 2;
+    }
+    else if(lo >= 0 && hi >= 0)
+    {
+        hi = lo + bandwidth;
+    }
+    else if(lo <= 0 && hi <= 0)
+    {
+        lo = hi - bandwidth;
     }
 
     remote->setPassband(lo, hi);
