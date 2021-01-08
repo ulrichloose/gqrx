@@ -30,6 +30,10 @@
 
 QStringList DockRxOpt::ModulationStrings;
 
+//Lookup tables for conversation to/from old settings 
+static const int new2old [ ] = {0,1,2,11,3,4,5,6,7,8,9,10,12};
+static const int old2new [ ] = {0,1,2,4,5,6,7,8,9,10,11,3,12};
+
 // Filter preset table per mode, preset and lo/hi
 static const int filter_preset_table[DockRxOpt::MODE_LAST][3][2] =
 {   //     WIDE             NORMAL            NARROW
@@ -467,7 +471,7 @@ void DockRxOpt::readSettings(QSettings *settings)
 
     int_val = MODE_AM;
     if (settings->contains("receiver/demod"))
-        int_val = settings->value("receiver/demod").toInt(&conv_ok);
+        int_val = old2new [settings->value("receiver/demod").toInt(&conv_ok)];
 
     setCurrentDemod(int_val);
     emit demodSelected(int_val);
@@ -479,7 +483,7 @@ void DockRxOpt::saveSettings(QSettings *settings)
 {
     int     int_val;
 
-    settings->setValue("receiver/demod", ui->modeSelector->currentIndex());
+    settings->setValue("receiver/demod", new2old [ui->modeSelector->currentIndex()]);
 
     int cwofs = demodOpt->getCwOffset();
     if (cwofs == 700)
