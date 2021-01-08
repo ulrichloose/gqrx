@@ -490,39 +490,39 @@ QString RemoteControl::intToModeStr(int mode)
         break;
 
     case 3:
-        mode_str = "FM";
+        mode_str = "AMS";
         break;
 
     case 4:
-        mode_str = "WFM";
+        mode_str = "FM";
         break;
 
     case 5:
-        mode_str = "WFM_ST";
+        mode_str = "WFM";
         break;
 
     case 6:
-        mode_str = "LSB";
+        mode_str = "WFM_ST";
         break;
 
     case 7:
-        mode_str = "USB";
+        mode_str = "LSB";
         break;
 
     case 8:
+        mode_str = "USB";
+        break;        
+
+    case 9:
         mode_str = (hamlib_compatible) ? "CWR" : "CWL";
         break;
 
-    case 9:
+    case 10:
         mode_str = (hamlib_compatible) ? "CW" : "CWU";
         break;
 
-    case 10:
-        mode_str = "WFM_ST_OIRT";
-        break;
-
     case 11:
-        mode_str = "AMS";
+        mode_str = "WFM_ST_OIRT";
         break;
 
     default:
