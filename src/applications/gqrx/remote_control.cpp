@@ -418,50 +418,52 @@ int RemoteControl::modeStrToInt(QString mode_str)
     {
         mode_int = 3;
     }
-    else if (mode_str.compare("FM", Qt::CaseInsensitive) == 0)
+      else if (mode_str.compare("LSB", Qt::CaseInsensitive) == 0)
     {
         mode_int = 4;
     }
-    else if (mode_str.compare("WFM", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("USB", Qt::CaseInsensitive) == 0)
     {
         mode_int = 5;
     }
-    else if (mode_str.compare("WFM_ST", Qt::CaseInsensitive) == 0)
-    {
-        mode_int = 6;
-    }
-    else if (mode_str.compare("LSB", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("CW", Qt::CaseInsensitive) == 0)  // "CW" : "CWU"
     {
         mode_int = 7;
-    }
-    else if (mode_str.compare("USB", Qt::CaseInsensitive) == 0)
-    {
-        mode_int = 8;
-    }
-    else if (mode_str.compare("CW", Qt::CaseInsensitive) == 0)
-    {
-        mode_int = 10;
         hamlib_compatible = true;
     }
-    else if (mode_str.compare("CWL", Qt::CaseInsensitive) == 0)
+    else if (mode_str.compare("CWL", Qt::CaseInsensitive) == 0) // "CWR" : "CWL"
     {
-        mode_int = 9;
+        mode_int = 6;
         hamlib_compatible = false;
     }
     else if (mode_str.compare("CWR", Qt::CaseInsensitive) == 0)
     {
-        mode_int = 9;
+        mode_int = 6;
         hamlib_compatible = true;
     }
     else if (mode_str.compare("CWU", Qt::CaseInsensitive) == 0)
     {
-        mode_int = 10;
+        mode_int = 7;
         hamlib_compatible = false;
+    }
+    else if (mode_str.compare("FM", Qt::CaseInsensitive) == 0)
+    {
+        mode_int = 8;
+    }
+    else if (mode_str.compare("WFM", Qt::CaseInsensitive) == 0)
+    {
+        mode_int = 9;
+    }
+    else if (mode_str.compare("WFM_ST", Qt::CaseInsensitive) == 0)
+    {
+        mode_int = 10;
     }
     else if (mode_str.compare("WFM_ST_OIRT", Qt::CaseInsensitive) == 0)
     {
         mode_int = 11;
     }
+  
+
 
 
     return mode_int;
@@ -494,31 +496,31 @@ QString RemoteControl::intToModeStr(int mode)
         break;
 
     case 4:
-        mode_str = "FM";
-        break;
-
-    case 5:
-        mode_str = "WFM";
-        break;
-
-    case 6:
-        mode_str = "WFM_ST";
-        break;
-
-    case 7:
         mode_str = "LSB";
         break;
 
-    case 8:
+    case 5:
         mode_str = "USB";
-        break;        
+        break;
 
-    case 9:
+    case 6:
         mode_str = (hamlib_compatible) ? "CWR" : "CWL";
         break;
 
-    case 10:
+    case 7:
         mode_str = (hamlib_compatible) ? "CW" : "CWU";
+        break;
+
+    case 8:
+        mode_str = "FM";
+        break;        
+
+    case 9:
+        mode_str = "WFM";
+        break;
+
+    case 10:
+        mode_str = "WFM_ST";
         break;
 
     case 11:

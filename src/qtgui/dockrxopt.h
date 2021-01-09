@@ -68,13 +68,13 @@ public:
         MODE_RAW        = 1, /*!< Raw I/Q passthrough. */
         MODE_AM         = 2, /*!< Amplitude modulation. */
         MODE_AM_SYNC    = 3, /*!< Amplitude modulation (synchronous demod). */
-        MODE_NFM        = 4, /*!< Narrow band FM. */
-        MODE_WFM_MONO   = 5, /*!< Broadcast FM (mono). */
-        MODE_WFM_STEREO = 6, /*!< Broadcast FM (stereo). */
-        MODE_LSB        = 7, /*!< Lower side band. */
-        MODE_USB        = 8, /*!< Upper side band. */
-        MODE_CWL        = 9, /*!< CW using LSB filter. */
-        MODE_CWU        = 10, /*!< CW using USB filter. */
+        MODE_LSB        = 4, /*!< Lower side band. */
+        MODE_USB        = 5, /*!< Upper side band. */
+        MODE_CWL        = 6, /*!< CW using LSB filter. */
+        MODE_CWU        = 7, /*!< CW using USB filter. */
+        MODE_NFM        = 8, /*!< Narrow band FM. */
+        MODE_WFM_MONO   = 9, /*!< Broadcast FM (mono). */
+        MODE_WFM_STEREO = 10, /*!< Broadcast FM (stereo). */
         MODE_WFM_STEREO_OIRT = 11, /*!< Broadcast FM (stereo oirt). */
         MODE_LAST       = 12
     };
