@@ -764,7 +764,7 @@ void CPlotter::zoomOnXAxis(float level)
 // Called when a mouse wheel is turned
 void CPlotter::wheelEvent(QWheelEvent * event)
 {
-    QPointF pt = event->position();
+    QPoint pt = event->pos();
     int delta = m_InvertScrolling? -event->angleDelta().y() : event->angleDelta().y();
     int numDegrees = delta / 8;
     int numSteps = numDegrees / 15;  /** FIXME: Only used for direction **/

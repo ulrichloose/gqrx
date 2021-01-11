@@ -113,12 +113,12 @@ private:
     double d_sample_rate;   /*! Current sample rate. */
     float  d_thld_nb1;      /*! Current threshold for noise blanker 1 (1.0 to 20.0 TBC). */
     float  d_thld_nb2;      /*! Current threshold for noise blanker 2 (0.0 to 15.0 TBC). */
-    //float  d_avgmag_nb1;    /*! Average magnitude. */
-    //float  d_avgmag_nb2;    /*! Average magnitude. */
+    float  d_avgmag_nb1;    /*! Average magnitude. */
+    float  d_avgmag_nb2;    /*! Average magnitude. */
     gr_complex d_avgsig, d_delay[8];
-    //int    d_delidx, d_sigidx, d_hangtime;   // FIXME: need longer buffer for higher sampel rates?
-    //int    d_nb1_state;
-    //int    d_nb2_state;
+    int    d_delidx, d_sigidx, d_hangtime;   // FIXME: need longer buffer for higher sampel rates?
+    int    d_nb1_state;
+    int    d_nb2_state;
 
     // NB1 parameters
     int d_nb1_dline_size;
@@ -126,7 +126,7 @@ private:
     int d_nb1_n_taps;
     int d_nb1_delay;
     double d_nb1_two_mu;
-    //double ed_nb1_gamma;
+    double ed_nb1_gamma;
     int d_nb1_in_idx;
     double d_nb1_lidx;
     double d_nb1_lidx_min;
@@ -147,12 +147,12 @@ private:
     double* d_nb2_window;
     int d_nb2_iasize;
     double* d_nb2_inaccum;
-    //double* d_nb2_forfftin;
-    //gr_complex* d_nb2_forfftout;
+    double* d_nb2_forfftin;
+    gr_complex* d_nb2_forfftout;
     int d_nb2_msize;
     double* d_nb2_mask;
-    //gr_complex* d_nb2_revfftin;
-    //double* d_nb2_revfftout;
+    gr_complex* d_nb2_revfftin;
+    double* d_nb2_revfftout;
     double** d_nb2_save;
     int d_nb2_oasize;
     double* d_nb2_outaccum;

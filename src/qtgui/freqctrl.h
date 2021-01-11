@@ -85,7 +85,7 @@ private:
     void    cursorEnd();
     void    moveCursorLeft();
     void    moveCursorRight();
-    bool    inRect(QRect &rect, QPointF &point);
+    bool    inRect(QRect &rect, QPoint &point);
 
     bool        m_UpdateAll;
     bool        m_ExternalKeyActive;
