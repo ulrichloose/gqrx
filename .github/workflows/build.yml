@@ -87,10 +87,27 @@ jobs:
         run: |
           brew update
           brew install --HEAD --build-from-source dylibbundler portaudio
-          brew install airspy boost gnuradio hackrf libbladerf librtlsdr pybind11 uhd
+          brew install airspy boost gnuradio hackrf libbladerf pybind11 uhd
           brew tap pothosware/homebrew-pothos
           brew install soapysdr soapyremote
 
+          cd /tmp
+          git clone https://github.com/ulrichloose/librtlsdr.git
+          cd librtlsdr
+          mkdir build
+          cd build
+          cmake ..
+          make install
+
+          cd /tmp
+          git clone https://github.com/ulrichloose/gr-osmosdr.git
+          cd gr-osmosdr
+          mkdir build
+          cd build
+          cmake ..
+          LIBRARY_PATH=/usr/local/opt/icu4c/lib make
+          make install
+          
           cd /tmp
           git clone https://github.com/airspy/airspyhf.git
           cd airspyhf
@@ -133,15 +150,7 @@ jobs:
           install_name_tool -change @rpath/iio.framework/Versions/0.21/iio /usr/local/lib/libiio.dylib /usr/local/lib/libad9361.dylib
           install_name_tool -change @rpath/iio.framework/Versions/0.21/iio /usr/local/lib/libiio.dylib /usr/local/lib/SoapySDR/modules0.*/libPlutoSDRSupport.so
           install_name_tool -change @rpath/ad9361.framework/Versions/0.2/ad9361 /usr/local/lib/libad9361.dylib /usr/local/lib/SoapySDR/modules0.*/libPlutoSDRSupport.so
-
-          cd /tmp
-          git clone git://git.osmocom.org/gr-osmosdr
-          cd gr-osmosdr
-          mkdir build
-          cd build
-          cmake ..
-          LIBRARY_PATH=/usr/local/opt/icu4c/lib make
-          make install
+          
       - name: Checkout code
         uses: actions/checkout@v2
         with:
