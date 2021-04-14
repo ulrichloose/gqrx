@@ -16,6 +16,11 @@ mkdir -p Gqrx.app/Contents/Resources
   <string>Gqrx</string>
   <key>CFBundleExecutable</key>
   <string>gqrx</string>
+    <key>LSEnvironment</key>
+  <dict>
+    <key>LIBRTLSDR_OPT</key>
+    <string>dm=4</string>
+  </dict>
   <key>CFBundleIdentifier</key>
   <string>dk.gqrx.www</string>
   <key>CFBundleName</key>
