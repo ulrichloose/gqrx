@@ -43,6 +43,7 @@ jobs:
           cd /tmp
           git clone git://git.osmocom.org/gr-iqbal
           cd gr-iqbal
+          git submodule update --init --recursive
           mkdir build
           cd build
           cmake ..
