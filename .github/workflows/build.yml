@@ -100,6 +100,14 @@ jobs:
           make install
 
           cd /tmp
+          git clone git://git.osmocom.org/gr-iqbal
+          cd gr-iqbal
+          mkdir build
+          cd build
+          cmake ..
+          make install
+
+          cd /tmp
           git clone https://github.com/ulrichloose/gr-osmosdr.git
           cd gr-osmosdr
           mkdir build
